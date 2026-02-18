@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tu Luan | Machine Learning Engineer</title>
+<meta name="description" content="Tu Luan - Machine Learning Engineer with Ph.D. in Computer Science. Production ML pipelines, semi-supervised learning, neural search systems for genomics.">
+<style>
+  :root {
+    --primary: #1a1a2e;
+    --accent: #0f7173;
+    --accent-light: #e8f4f4;
+    --text: #2d2d2d;
+    --text-secondary: #5a5a6e;
+    --border: #e0e0e8;
+    --bg: #fafafa;
+    --white: #ffffff;
+    --tag-bg: #f0f0f5;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+    color: var(--text);
+    background: var(--bg);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ---- NAV ---- */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    background: rgba(26,26,46,0.97);
+    backdrop-filter: blur(8px);
+    z-index: 100;
+    padding: 0 2rem;
+  }
+  nav .nav-inner {
+    max-width: 960px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 56px;
+  }
+  nav .logo {
+    font-weight: 700;
+    font-size: 1.05rem;
+    color: #fff;
+    letter-spacing: 0.5px;
+  }
+  nav .logo span { color: var(--accent); }
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1.8rem;
+  }
+  nav a {
+    color: #c0c0d0;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+    transition: color 0.2s;
+  }
+  nav a:hover { color: #fff; }
+
+  /* ---- HERO ---- */
+  .hero {
+    padding: 9rem 2rem 4rem;
+    background: var(--primary);
+    color: #fff;
+    text-align: center;
+  }
+  .hero-inner {
+    max-width: 720px;
+    margin: 0 auto;
+  }
+  .hero h1 {
+    font-size: 2.6rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.5px;
+  }
+  .hero .subtitle {
+    font-size: 1.15rem;
+    color: #a0b0c0;
+    font-weight: 400;
+    margin-bottom: 1.5rem;
+  }
+  .hero .tagline {
+    font-size: 0.95rem;
+    color: #8090a0;
+    max-width: 600px;
+    margin: 0 auto 2rem;
+    line-height: 1.7;
+  }
+  .hero-links {
+    display: flex;
+    justify-content: center;
+    gap: 1.2rem;
+    flex-wrap: wrap;
+  }
+  .hero-links a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.55rem 1.2rem;
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 6px;
+    color: #d0d8e0;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 500;
+    transition: all 0.2s;
+  }
+  .hero-links a:hover {
+    border-color: var(--accent);
+    color: #fff;
+    background: rgba(15,113,115,0.15);
+  }
+  .hero-links .primary-btn {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #fff;
+  }
+  .hero-links .primary-btn:hover {
+    background: #0d6163;
+  }
+
+  /* ---- SECTIONS ---- */
+  .container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+  section {
+    padding: 4rem 0;
+  }
+  section + section {
+    border-top: 1px solid var(--border);
+  }
+  .section-title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+  .section-title::before {
+    content: '';
+    display: inline-block;
+    width: 4px;
+    height: 1.4rem;
+    background: var(--accent);
+    border-radius: 2px;
+  }
+
+  /* ---- EXPERIENCE CARD ---- */
+  .exp-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1.8rem 2rem;
+    margin-bottom: 1.5rem;
+    transition: box-shadow 0.2s;
+  }
+  .exp-card:hover {
+    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+  }
+  .exp-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 0.3rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .exp-role {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--primary);
+  }
+  .exp-date {
+    font-size: 0.82rem;
+    color: var(--text-secondary);
+    white-space: nowrap;
+  }
+  .exp-org {
+    font-size: 0.92rem;
+    color: var(--accent);
+    font-weight: 600;
+    margin-bottom: 0.6rem;
+  }
+  .exp-project {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text);
+    margin: 1rem 0 0.4rem;
+    padding-top: 0.8rem;
+    border-top: 1px solid var(--border);
+  }
+  .exp-project:first-of-type {
+    margin-top: 0.8rem;
+    padding-top: 0;
+    border-top: none;
+  }
+  .exp-tech {
+    display: flex;
+    gap: 0.4rem;
+    flex-wrap: wrap;
+    margin-bottom: 0.6rem;
+  }
+  .exp-tech span {
+    font-size: 0.72rem;
+    padding: 0.2rem 0.55rem;
+    background: var(--accent-light);
+    color: var(--accent);
+    border-radius: 4px;
+    font-weight: 600;
+    letter-spacing: 0.2px;
+  }
+  .exp-bullets {
+    list-style: none;
+    padding: 0;
+  }
+  .exp-bullets li {
+    position: relative;
+    padding-left: 1.1rem;
+    margin-bottom: 0.5rem;
+    font-size: 0.88rem;
+    color: var(--text);
+    line-height: 1.65;
+  }
+  .exp-bullets li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.55rem;
+    width: 5px;
+    height: 5px;
+    background: var(--accent);
+    border-radius: 50%;
+  }
+
+  /* ---- METRICS ROW ---- */
+  .metrics {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1rem;
+    margin: 2.5rem 0 0;
+  }
+  .metric-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1.4rem 1.2rem;
+    text-align: center;
+  }
+  .metric-val {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--accent);
+  }
+  .metric-label {
+    font-size: 0.78rem;
+    color: var(--text-secondary);
+    margin-top: 0.2rem;
+    line-height: 1.4;
+  }
+
+  /* ---- SKILLS ---- */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.2rem;
+  }
+  .skill-group {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1.4rem 1.5rem;
+  }
+  .skill-group h3 {
+    font-size: 0.82rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-secondary);
+    margin-bottom: 0.8rem;
+    font-weight: 600;
+  }
+  .skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+  .skill-tags span {
+    font-size: 0.82rem;
+    padding: 0.35rem 0.75rem;
+    background: var(--tag-bg);
+    border-radius: 5px;
+    color: var(--text);
+    font-weight: 500;
+  }
+
+  /* ---- PUBLICATIONS ---- */
+  .pub-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1.4rem 1.8rem;
+    margin-bottom: 1rem;
+  }
+  .pub-title {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--primary);
+    margin-bottom: 0.3rem;
+    line-height: 1.5;
+  }
+  .pub-venue {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    font-style: italic;
+  }
+  .pub-if {
+    display: inline-block;
+    font-size: 0.72rem;
+    padding: 0.2rem 0.5rem;
+    background: var(--accent-light);
+    color: var(--accent);
+    border-radius: 4px;
+    font-weight: 700;
+    margin-top: 0.4rem;
+    font-style: normal;
+  }
+
+  /* ---- EDUCATION ---- */
+  .edu-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1.4rem 1.8rem;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .edu-info h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--primary);
+  }
+  .edu-info p {
+    font-size: 0.88rem;
+    color: var(--text-secondary);
+    margin-top: 0.15rem;
+  }
+  .edu-date {
+    font-size: 0.82rem;
+    color: var(--text-secondary);
+    white-space: nowrap;
+  }
+
+  /* ---- FOOTER ---- */
+  footer {
+    background: var(--primary);
+    color: #8090a0;
+    text-align: center;
+    padding: 2.5rem 2rem;
+    font-size: 0.82rem;
+  }
+  footer a {
+    color: #a0b8c8;
+    text-decoration: none;
+  }
+  footer a:hover { color: #fff; }
+  .footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  /* ---- RESPONSIVE ---- */
+  @media (max-width: 640px) {
+    .hero h1 { font-size: 2rem; }
+    .hero .subtitle { font-size: 1rem; }
+    nav ul { gap: 1rem; }
+    nav a { font-size: 0.78rem; }
+    .exp-card { padding: 1.4rem 1.2rem; }
+    .metrics { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  /* ---- PROFILE PHOTO ---- */
+  .profile-photo {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid rgba(255,255,255,0.2);
+    margin-bottom: 1.2rem;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  }
+
+  /* ---- SMOOTH SCROLL ---- */
+  html { scroll-behavior: smooth; }
+
+  /* ---- ICONS (inline SVG via CSS) ---- */
+  .icon {
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    vertical-align: middle;
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <div class="logo">TU<span>.</span>LUAN</div>
+    <ul>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#research">Research</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#publications">Publications</a></li>
+      <li><a href="#education">Education</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-inner">
+    <img src="photo.jpg" alt="Tu Luan" class="profile-photo">
+    <h1>Tu Luan</h1>
+    <p class="subtitle">Machine Learning Engineer &middot; Ph.D. Computer Science</p>
+    <p style="font-size:0.82rem;color:#a0b0c0;margin-bottom:0.8rem;letter-spacing:0.3px;">U.S. Permanent Resident &mdash; No sponsorship required</p>
+    <p class="tagline">
+      Machine Learning Engineer (Ph.D. CS) who shipped production genomic data/compute pipelines (WDL/Docker/AWS Batch) powering a launched prenatal screening workflow (1.6k+ enrollments). Built and evaluated ML models (semi-supervised under label scarcity) and DNABERT-based retrieval and ranking for large-scale genomic sequences.
+    </p>
+    <div class="hero-links">
+      <a href="mailto:kayyet@gmail.com" class="primary-btn">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 4 10 8 10-8"/></svg>
+        kayyet@gmail.com
+      </a>
+      <a href="https://github.com/tluan" target="_blank" rel="noopener">
+        <svg class="icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .3a12 12 0 0 0-3.8 23.38c.6.11.82-.26.82-.58v-2.16c-3.34.73-4.04-1.61-4.04-1.61a3.18 3.18 0 0 0-1.33-1.76c-1.09-.74.08-.73.08-.73a2.52 2.52 0 0 1 1.84 1.24 2.56 2.56 0 0 0 3.5 1 2.56 2.56 0 0 1 .76-1.6c-2.67-.3-5.47-1.33-5.47-5.93a4.64 4.64 0 0 1 1.24-3.22 4.3 4.3 0 0 1 .12-3.18s1-.32 3.3 1.23a11.38 11.38 0 0 1 6 0c2.28-1.55 3.28-1.23 3.28-1.23a4.3 4.3 0 0 1 .12 3.18 4.64 4.64 0 0 1 1.24 3.22c0 4.61-2.81 5.63-5.48 5.93a2.86 2.86 0 0 1 .82 2.22v3.29c0 .32.22.7.82.58A12 12 0 0 0 12 .3"/></svg>
+        GitHub
+      </a>
+      <a href="https://linkedin.com/in/tu-luan-5a4479b1" target="_blank" rel="noopener">
+        <svg class="icon" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.41v1.56h.05a3.74 3.74 0 0 1 3.37-1.85c3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zm1.78 13.02H3.56V9h3.56v11.45zM22.22 0H1.77A1.75 1.75 0 0 0 0 1.73v20.54A1.75 1.75 0 0 0 1.77 24h20.45A1.76 1.76 0 0 0 24 22.27V1.73A1.76 1.76 0 0 0 22.22 0z"/></svg>
+        LinkedIn
+      </a>
+    </div>
+
+    <!-- KEY METRICS -->
+    <div class="metrics">
+      <div class="metric-card">
+        <div class="metric-val">1.6k+</div>
+        <div class="metric-label">Patient enrollments on<br>shipped screening product</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-val">27x</div>
+        <div class="metric-label">Speedup over SOTA<br>clustering baseline</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-val">22.5M</div>
+        <div class="metric-label">Data points processed<br>in 1.2 GB memory</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="container">
+
+  <!-- EDUCATION -->
+  <section id="education">
+    <h2 class="section-title">Education</h2>
+
+    <div class="edu-card">
+      <div class="edu-info">
+        <h3>University of Maryland, College Park</h3>
+        <p>Ph.D. in Computer Science &middot; Advisor: Dr. Mihai Pop</p>
+      </div>
+      <div class="edu-date">2018 &ndash; 2024</div>
+    </div>
+
+    <div class="edu-card">
+      <div class="edu-info">
+        <h3>Bryn Mawr College</h3>
+        <p>B.A. in Computer Science</p>
+      </div>
+      <div class="edu-date">2014 &ndash; 2018</div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <h2 class="section-title">Professional Experience</h2>
+
+    <div class="exp-card">
+      <div class="exp-header">
+        <div class="exp-role">Senior Bioinformatics Scientist (ML / Production Pipelines)</div>
+        <div class="exp-date">July 2024 &ndash; Present</div>
+      </div>
+      <div class="exp-org">Natera, Inc. &middot; San Carlos, CA</div>
+
+      <div class="exp-project">Production Genomic Data Pipeline</div>
+      <div class="exp-tech">
+        <span>Python</span><span>WDL</span><span>Docker</span><span>AWS Batch</span><span>CI/CD</span><span>CloudWatch</span>
+      </div>
+      <ul class="exp-bullets">
+        <li>Owned and shipped an end-to-end Dockerized production pipeline on AWS Batch (~50 GB/run, 20-50 samples/run): raw-data ingestion, automated QC gating, and standardized outputs consumed by downstream models; achieved &lt;8 h turnaround via WDL parallelization.</li>
+        <li>Pipeline powers Natera's publicly launched <strong>Fetal Focus&trade;</strong> product; early blinded readout reported 91% sensitivity (n=101), scaled to 1,600+ enrollments.</li>
+        <li>Built operational tooling: job-dispatch CLI for parameterized AWS Batch submissions and smoke tests; instrumented CloudWatch peak-memory telemetry with automatic retries (2x) for transient OOM failures.</li>
+      </ul>
+
+      <div class="exp-project">Feature-Constrained Ancestry Classification</div>
+      <div class="exp-tech">
+        <span>Python</span><span>scikit-learn</span><span>RandomForest</span><span>Feature Selection</span><span>Cross-Validation</span>
+      </div>
+      <ul class="exp-bullets">
+        <li>Designed a feature-selection + modeling pipeline to classify ancestry under a fixed marker budget (no new assay sites), including data cleaning/standardization for missing/invalid markers and a CV-driven search for the minimal feature set meeting target accuracy.</li>
+        <li>One-vs-one RandomForest ensemble + probability-weighted aggregation with confidence/abstain; reached 97.6% accuracy (F1=0.976) on 5-class with 112 features and 98.2% accuracy on 3-class with 23 features; validated on a small real-world cohort (13/14 correct).</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- RESEARCH -->
+  <section id="research">
+    <h2 class="section-title">Research &amp; Projects</h2>
+
+    <div class="exp-card">
+      <div class="exp-header">
+        <div class="exp-role">Research Assistant &middot; Pop Lab</div>
+        <div class="exp-date">Aug 2019 &ndash; Aug 2024</div>
+      </div>
+      <div class="exp-org">University of Maryland, College Park</div>
+
+      <div class="exp-project">Neural Search and Ranking System for Genomic Sequences</div>
+      <div class="exp-tech">
+        <span>Python</span><span>PyTorch</span><span>DNABert</span><span>FastAPI</span><span>Docker</span>
+      </div>
+      <ul class="exp-bullets">
+        <li>Built a genome-scale retrieval system for detecting CRISPR off-target effects; processes millions of sequence candidates using a DNABert bi-encoder for retrieval and a cross-encoder for re-ranking.</li>
+        <li>Outperformed traditional CFD/MIT baseline models with significant improvement in nDCG@50 on out-of-distribution datasets, demonstrating robust generalization across experimental assays.</li>
+        <li>Deployed as a FastAPI service returning top-k matches with calibrated scores; Docker-containerized.</li>
+      </ul>
+
+      <div class="exp-project">SCRAPT &mdash; Ultra-Fast Unsupervised Clustering for Large Genomic Datasets</div>
+      <div class="exp-tech">
+        <span>C++</span><span>Multithreading</span><span>Bash</span>
+      </div>
+      <ul class="exp-bullets">
+        <li>Designed an unsupervised two-stage sequence clustering algorithm with adaptive sampling and mean-shift-style centroid recentering; developed probabilistic guarantees for recovering large clusters first with early-stopping criteria.</li>
+        <li>Implemented with multithreading in C++ to process over 22.5M data points in ~1.2 GB memory.</li>
+        <li>Achieved 27x performance speedup over SOTA baseline while maintaining comparable cluster quality.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <h2 class="section-title">Technical Skills</h2>
+    <div class="skills-grid">
+      <div class="skill-group">
+        <h3>Languages</h3>
+        <div class="skill-tags">
+          <span>Python</span><span>C++</span><span>Java</span><span>SQL</span><span>Bash</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h3>ML / Data Science</h3>
+        <div class="skill-tags">
+          <span>PyTorch</span><span>scikit-learn</span><span>pandas</span><span>NumPy</span><span>SciPy</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h3>MLOps / Infrastructure</h3>
+        <div class="skill-tags">
+          <span>Docker</span><span>AWS (EC2/S3/Batch)</span><span>GitHub Actions</span><span>GitLab CI</span><span>BigQuery</span><span>HPC</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h3>Data &amp; Pipelines</h3>
+        <div class="skill-tags">
+          <span>WDL</span><span>Nextflow</span><span>DVC</span><span>Conda</span><span>pytest</span><span>RDBMS</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PUBLICATIONS -->
+  <section id="publications">
+    <h2 class="section-title">Selected Publications</h2>
+
+    <div class="pub-card">
+      <div class="pub-title"><strong>T. Luan*</strong>, et al. (2023). SCRAPT: an iterative algorithm for clustering large 16S rRNA gene data sets.</div>
+      <div class="pub-venue">
+        <em>Nucleic Acids Research</em>, 51(8).
+        <span class="pub-if">IF: 13.1</span>
+      </div>
+    </div>
+
+    <div class="pub-card">
+      <div class="pub-title">Liu, S., Rodriguez, J.S., Munteanu, V., et al. (including <strong>T. Luan</strong>). (2025). Analysis of metagenomic data.</div>
+      <div class="pub-venue">
+        <em>Nature Reviews Methods Primers</em>, 5.
+        <span class="pub-if">IF: 50.1</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section id="education">
+    <h2 class="section-title">Education</h2>
+
+    <div class="edu-card">
+      <div class="edu-info">
+        <h3>University of Maryland, College Park</h3>
+        <p>Ph.D. in Computer Science &middot; Advisor: Dr. Mihai Pop</p>
+      </div>
+      <div class="edu-date">2018 &ndash; 2024</div>
+    </div>
+
+    <div class="edu-card">
+      <div class="edu-info">
+        <h3>Bryn Mawr College</h3>
+        <p>B.A. in Computer Science</p>
+      </div>
+      <div class="edu-date">2014 &ndash; 2018</div>
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-links">
+    <a href="mailto:kayyet@gmail.com">Email</a>
+    <a href="https://github.com/tluan" target="_blank" rel="noopener">GitHub</a>
+    <a href="https://linkedin.com/in/tu-luan-5a4479b1" target="_blank" rel="noopener">LinkedIn</a>
+  </div>
+  <p>U.S. Permanent Resident &mdash; No sponsorship required</p>
+</footer>
+
+</body>
+</html>
